@@ -1,0 +1,1153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="African Minds Builder (AMB) offers practical learning opportunities in technology, digital skills, and professional development.">
+    <title>African Minds Builder | Learn, Build, Succeed</title>
+
+    <style>
+        :root {
+            --yellow: #FACC15;
+            --yellow-dark: #EAB308;
+            --yellow-soft: #FEFCE8;
+            --yellow-tint: #FEF9C3;
+            --yellow-line: #FDE047;
+            --black: #111111;
+            --dark: #1c1c1c;
+            --white: #ffffff;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        button, input, select, textarea { font: inherit; }
+        button { cursor: pointer; }
+
+        a:focus-visible, button:focus-visible {
+            outline: 3px solid var(--yellow);
+            outline-offset: 2px;
+        }
+
+        .container { width: min(1120px, 92%); margin: 0 auto; }
+        .section { padding: 75px 0; }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 42px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 5px 12px;
+            border-radius: 30px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.2;
+            margin: 14px 0;
+        }
+
+        .section-heading p { color: var(--gray); }
+
+        .btn {
+            display: inline-block;
+            border: 0;
+            border-radius: 8px;
+            padding: 13px 22px;
+            font-weight: 700;
+            text-align: center;
+            transition: 0.2s ease;
+        }
+
+        .btn-primary { color: var(--black); background: var(--yellow); }
+
+        .btn-primary:hover {
+            background: var(--yellow-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            color: var(--white);
+            background: transparent;
+            border: 2px solid var(--white);
+            padding: 11px 20px;
+        }
+
+        .btn-dark:hover { background: var(--white); color: var(--black); }
+
+        /* NAVIGATION */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--black);
+            border-bottom: 3px solid var(--yellow);
+            color: var(--white);
+        }
+
+        .nav-content {
+            min-height: 76px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            font-size: 19px;
+        }
+
+        .brand img { width: 48px; height: 48px; object-fit: contain; }
+
+        .brand-mark {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            background: var(--yellow);
+            color: var(--black);
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .brand small {
+            display: block;
+            color: var(--yellow);
+            font-size: 10px;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-links { display: flex; align-items: center; gap: 24px; }
+        .nav-links a { font-size: 14px; font-weight: 700; }
+        .nav-links a:not(.btn):hover { color: var(--yellow); }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            color: var(--white);
+            border: 1px solid var(--yellow);
+            border-radius: 7px;
+            padding: 7px 11px;
+            font-size: 23px;
+        }
+
+        /* HERO */
+        .hero {
+            background:
+                radial-gradient(circle at 85% 20%, rgba(250,204,21,.22), transparent 32%),
+                linear-gradient(135deg, #111111, #262626);
+            color: var(--white);
+            padding: 100px 0;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(250,204,21,.15);
+            color: var(--yellow-line);
+            border: 1px solid rgba(250,204,21,.45);
+            border-radius: 30px;
+            padding: 7px 13px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5.5vw, 64px);
+            line-height: 1.08;
+            margin-bottom: 23px;
+        }
+
+        .hero h1 span { color: var(--yellow); }
+
+        .hero p {
+            color: #d4d4d4;
+            font-size: 17px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; }
+
+        .hero-visual {
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(250,204,21,.35);
+            border-radius: 22px;
+            padding: 30px;
+        }
+
+        .hero-visual h3 { font-size: 25px; margin-bottom: 10px; }
+        .hero-visual p { font-size: 15px; margin-bottom: 20px; }
+        .visual-points { display: grid; gap: 12px; }
+
+        .visual-points div {
+            background: rgba(255,255,255,.07);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--yellow);
+        }
+
+        /* PROGRAMS */
+        .programs, .application { background: var(--light); }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 26px;
+        }
+
+        .program-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.2s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--yellow);
+            box-shadow: 0 12px 30px rgba(0,0,0,.1);
+        }
+
+        .program-media {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: var(--dark);
+            border-bottom: 4px solid var(--yellow);
+            overflow: hidden;
+        }
+
+        .program-media img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .program-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 24px 26px 26px;
+        }
+
+        .program-card h3 { margin-bottom: 10px; font-size: 21px; }
+        .program-card p { color: var(--gray); font-size: 15px; margin-bottom: 20px; }
+
+        .program-card button {
+            margin-top: auto;
+            align-self: flex-start;
+            color: var(--black);
+            background: transparent;
+            border: 0;
+            border-bottom: 3px solid var(--yellow);
+            padding: 2px 0;
+            font-weight: 800;
+        }
+
+        .program-card button:hover { background: var(--yellow); }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-visual {
+            background: var(--black);
+            color: var(--white);
+            border-radius: 18px;
+            border-bottom: 6px solid var(--yellow);
+            padding: 40px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-visual h3 { font-size: 28px; margin-bottom: 12px; }
+        .about-visual p { color: #d4d4d4; }
+
+        .about-copy h2 {
+            font-size: clamp(28px, 4vw, 38px);
+            line-height: 1.2;
+            margin: 14px 0 18px;
+        }
+
+        .about-copy p { color: var(--gray); margin-bottom: 16px; }
+        .about-list { list-style: none; display: grid; gap: 12px; margin: 22px 0; }
+
+        .about-list li::before {
+            content: "✓";
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            line-height: 22px;
+            text-align: center;
+            background: var(--yellow);
+            color: var(--black);
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        /* APPLICATION FORM */
+        .application-layout {
+            display: grid;
+            grid-template-columns: .7fr 1.3fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .application-info {
+            background: var(--black);
+            color: var(--white);
+            border-radius: 14px;
+            border-top: 5px solid var(--yellow);
+            padding: 28px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .application-info h3 { font-size: 25px; margin-bottom: 15px; }
+        .application-info p { color: #d4d4d4; margin-bottom: 18px; }
+        .application-info ul { list-style: none; display: grid; gap: 13px; }
+
+        .application-info li::before {
+            content: "✓";
+            color: var(--yellow);
+            font-weight: 900;
+            margin-right: 9px;
+        }
+
+        .application-form {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 30px;
+        }
+
+        .application-form h3 { font-size: 25px; margin-bottom: 6px; }
+        .form-intro { color: var(--gray); margin-bottom: 24px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .form-group { margin-bottom: 18px; min-width: 0; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { display: block; margin-bottom: 7px; font-size: 14px; font-weight: 700; }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--black);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--yellow-dark);
+            box-shadow: 0 0 0 3px rgba(250,204,21,.35);
+        }
+
+        .form-group textarea { min-height: 115px; resize: vertical; }
+        .form-group small { display: block; color: var(--gray); font-size: 12px; margin-top: 7px; }
+
+        /* PAYMENT */
+        .payment-instructions {
+            background: var(--yellow-soft);
+            border: 1px solid var(--yellow-line);
+            border-left: 5px solid var(--yellow);
+            border-radius: 12px;
+            padding: 22px;
+            margin: 12px 0 25px;
+            color: var(--black);
+        }
+
+        .payment-instructions h4 { font-size: 22px; margin-bottom: 8px; }
+        .payment-instructions > p { color: #44403c; font-size: 14px; margin-bottom: 15px; }
+
+        .payment-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--yellow-line);
+        }
+
+        .payment-detail > span { color: #44403c; font-size: 14px; }
+        .payment-detail strong { overflow-wrap: anywhere; }
+        .payment-number { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+
+        .copy-payment-button {
+            background: var(--yellow);
+            color: var(--black);
+            border: 0;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .copy-payment-button:hover { background: var(--yellow-dark); }
+        .payment-fee { margin-top: 17px; background: var(--yellow-tint); padding: 13px; border-radius: 8px; font-size: 17px; }
+        .payment-warning { margin-top: 13px; font-size: 13px; line-height: 1.6; color: #292524; }
+        .terms-group label { display: flex; align-items: flex-start; gap: 10px; font-weight: 400; line-height: 1.6; }
+        .terms-group input[type="checkbox"] { width: auto; margin-top: 5px; flex-shrink: 0; accent-color: var(--yellow-dark); }
+        .submit-button { width: 100%; border: 0; margin-top: 5px; font-size: 16px; }
+        .submit-button:disabled { opacity: .7; cursor: not-allowed; }
+
+        .form-status {
+            display: none;
+            margin-top: 18px;
+            padding: 13px;
+            border-radius: 8px;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .form-status.success { display: block; background: #dcfce7; color: #166534; }
+        .form-status.error { display: block; background: #fee2e2; color: #991b1b; }
+        .form-status.loading { display: block; background: var(--yellow-tint); color: var(--black); }
+
+        /* CONTACT SECTION */
+        .contact-strip { background: var(--yellow); text-align: center; padding: 50px 0; }
+        .contact-strip h2 { font-size: 30px; margin-bottom: 12px; }
+        .contact-strip p { color: #292524; margin-bottom: 22px; }
+        .contact-strip .btn-primary { background: var(--black); color: var(--white); }
+        .contact-strip .btn-primary:hover { background: #333; }
+
+        .contact-details { background: var(--light); padding: 75px 0; }
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+        .contact-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--yellow);
+            border-radius: 14px;
+            padding: 28px 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.05);
+            text-align: center;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,.1);
+        }
+
+        .contact-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 18px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 22px;
+        }
+
+        .contact-logo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .contact-card h3 { font-size: 21px; margin-bottom: 10px; }
+        .contact-card p { color: var(--gray); font-size: 14px; margin-bottom: 18px; }
+
+        .whatsapp-list { display: grid; gap: 10px; }
+
+        .contact-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--black);
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-weight: 700;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+            transition: .2s ease;
+        }
+
+        .contact-action:hover {
+            background: var(--yellow-soft);
+            border-color: var(--yellow);
+        }
+
+        .contact-action img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .contact-note {
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray);
+            margin-top: 22px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 35px 0;
+            border-top: 3px solid var(--yellow);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer p { color: #a3a3a3; font-size: 13px; }
+        .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+        .footer-links a { color: #d4d4d4; font-size: 13px; }
+        .footer-links a:hover { color: var(--yellow); }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .hero-grid, .about-grid, .application-layout { grid-template-columns: 1fr; }
+            .hero-grid { gap: 35px; }
+            .application-info { position: static; }
+            .contact-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 650px) {
+            .nav-content { min-height: 68px; }
+            .brand { font-size: 16px; }
+            .brand img, .brand-mark { width: 40px; height: 40px; }
+            .menu-toggle { display: block; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: var(--black);
+                border-bottom: 3px solid var(--yellow);
+                padding: 20px 4%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 18px;
+            }
+
+            .nav-links.active { display: flex; }
+            .nav-links .btn { width: 100%; }
+            .hero { padding: 65px 0; }
+            .hero h1 { font-size: 40px; }
+            .hero-visual { padding: 23px; }
+            .program-grid, .form-grid, .contact-grid { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: auto; }
+            .section { padding: 55px 0; }
+            .application-form { padding: 20px; }
+            .payment-instructions { padding: 16px; }
+            .payment-detail { align-items: flex-start; flex-direction: column; }
+            .footer-content { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="#home" class="brand" aria-label="African Minds Builder home">
+                <img src="amb-logo.png" alt="AMB logo"
+                     onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='grid';">
+                <span id="brandFallback" class="brand-mark" style="display:none;">AMB</span>
+                <span>AFRICAN MINDS BUILDER<small>LEARN • BUILD • SUCCEED</small></span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" type="button"
+                    aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#programs">Programs</a>
+                <a href="#about">About</a>
+                <a href="#apply">Apply</a>
+                <a href="#contact" class="btn btn-primary">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div>
+                    <span class="hero-badge">BUILD YOUR FUTURE WITH AMB</span>
+                    <h1>Empower Your Mind. <span>Build Your Future.</span></h1>
+                    <p>African Minds Builder helps learners develop practical knowledge, digital skills, and the confidence to pursue their goals in an increasingly digital world.</p>
+                    <div class="hero-actions">
+                        <a href="#apply" class="btn btn-primary">Apply Now</a>
+                        <a href="#programs" class="btn btn-dark">Explore Programs</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <h3>Your Potential Has No Limits</h3>
+                    <p>Learn new skills, develop your ideas, and take practical steps toward your future.</p>
+                    <div class="visual-points">
+                        <div>Practical learning</div>
+                        <div>Digital skills development</div>
+                        <div>Personal growth and opportunity</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRAMS -->
+        <section class="section programs" id="programs">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Our Programs</span>
+                    <h2>Discover What You Can Learn</h2>
+                    <p>Explore our four program areas, designed to help you strengthen your knowledge and develop useful skills.</p>
+                </div>
+
+                <div class="program-grid">
+                    <article class="program-card">
+                        <div class="program-media">
+                            <img src="images/Skill Development .jpeg" alt="Learners building practical skills" loading="lazy" onerror="this.style.display='none';">
+                        </div>
+                        <div class="program-body">
+                            <h3>Skills Development</h3>
+                            <p>Build practical, job-ready skills that support education, work, and personal growth.</p>
+                            <button type="button" data-program="Skills Development">Apply for this program →</button>
+                        </div>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-media">
+                            <img src="images/Mental Health Awareness.jpeg" alt="Mental health awareness" loading="lazy" onerror="this.style.display='none';">
+                        </div>
+                        <div class="program-body">
+                            <h3>Mental Health Awareness</h3>
+                            <p>Learn about mental wellbeing, build healthy habits, and help reduce stigma in your community.</p>
+                            <button type="button" data-program="Mental Health Awareness">Apply for this program →</button>
+                        </div>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-media">
+                            <img src="images/Civic Engagement & Policy.jpeg" alt="Civic engagement and policy" loading="lazy" onerror="this.style.display='none';">
+                        </div>
+                        <div class="program-body">
+                            <h3>Civic Engagement &amp; Policy</h3>
+                            <p>Understand how policies are shaped and learn how to take an active, informed role in public life.</p>
+                            <button type="button" data-program="Civic Engagement & Policy">Apply for this program →</button>
+                        </div>
+                    </article>
+
+                    <article class="program-card">
+                        <div class="program-media">
+                            <img src="images/Communication & Engagement.jpeg" alt="Communication and engagement" loading="lazy" onerror="this.style.display='none';">
+                        </div>
+                        <div class="program-body">
+                            <h3>Communication &amp; Engagement</h3>
+                            <p>Strengthen how you speak, write, and connect with people, teams, and communities.</p>
+                            <button type="button" data-program="Communication & Engagement">Apply for this program →</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container about-grid">
+                <div class="about-visual">
+                    <h3>Knowledge Creates Opportunity</h3>
+                    <p>Every new skill is an opportunity to grow, solve problems, and create something meaningful.</p>
+                </div>
+
+                <div class="about-copy">
+                    <span class="eyebrow">About AMB</span>
+                    <h2>Helping People Learn, Grow, and Build</h2>
+                    <p>African Minds Builder (AMB) is focused on learning, personal development, and practical skills that can help people prepare for future opportunities.</p>
+                    <p>Our goal is to encourage curiosity, support skill development, and help learners take meaningful steps toward their ambitions.</p>
+                    <ul class="about-list">
+                        <li>Learn practical and useful skills.</li>
+                        <li>Develop confidence through learning.</li>
+                        <li>Explore technology and digital opportunities.</li>
+                        <li>Take the next step toward your goals.</li>
+                    </ul>
+                    <a href="#apply" class="btn btn-primary">Join AMB</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPLICATION -->
+        <section class="section application" id="apply">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Join Our Community</span>
+                    <h2>Apply to African Minds Builder</h2>
+                    <p>Complete the application form carefully. Required fields must be filled in before you submit.</p>
+                </div>
+
+                <div class="application-layout">
+                    <aside class="application-info">
+                        <h3>Start Your Journey</h3>
+                        <p>Provide accurate information and select the program that best matches your learning goals.</p>
+                        <ul>
+                            <li>Complete your personal information.</li>
+                            <li>Select your preferred program.</li>
+                            <li>Review the payment instructions.</li>
+                            <li>Upload your documents and submit.</li>
+                        </ul>
+                    </aside>
+
+                    <form class="application-form" id="applicationForm" action="apply.php" method="POST" enctype="multipart/form-data">
+                        <h3>Application Form</h3>
+                        <p class="form-intro">Fields marked with * are required.</p>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="full_name">Full Name *</label>
+                                <input type="text" id="full_name" name="full_name" maxlength="100" autocomplete="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" maxlength="150" autocomplete="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sex">Sex *</label>
+                                <select id="sex" name="sex" required>
+                                    <option value="">Select an option</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Prefer not to say">Prefer not to say</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date_of_birth">Date of Birth *</label>
+                                <input type="date" id="date_of_birth" name="date_of_birth" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" maxlength="30" autocomplete="tel" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="whatsapp_number">WhatsApp Number *</label>
+                                <input type="tel" id="whatsapp_number" name="whatsapp_number" maxlength="30" required>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="residential_address">Residential Address *</label>
+                                <input type="text" id="residential_address" name="residential_address" maxlength="500" autocomplete="street-address" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="educational_level">Educational Level *</label>
+                                <select id="educational_level" name="educational_level" required>
+                                    <option value="">Select your level</option>
+                                    <option value="Primary">Primary</option>
+                                    <option value="Secondary">Secondary</option>
+                                    <option value="High School">High School</option>
+                                    <option value="University">University</option>
+                                    <option value="College">College</option>
+                                    <option value="Vocational Training">Vocational Training</option>
+                                    <option value="Graduate">Graduate</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="program">Preferred Program *</label>
+                                <select id="program" name="program" required>
+                                    <option value="">Select a program</option>
+                                    <option value="Skills Development">Skills Development</option>
+                                    <option value="Mental Health Awareness">Mental Health Awareness</option>
+                                    <option value="Civic Engagement & Policy">Civic Engagement &amp; Policy</option>
+                                    <option value="Communication & Engagement">Communication &amp; Engagement</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="passport_photo">Passport Photo *</label>
+                                <input type="file" id="passport_photo" name="passport_photo" accept=".jpg,.jpeg,.png,.webp" required>
+                                <small>JPG, PNG, or WebP image. Maximum size: 2 MB.</small>
+                                <img id="photoPreview" alt="Passport photo preview" style="display:none;width:120px;height:140px;object-fit:cover;border-radius:8px;margin-top:12px;">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="message">Additional Information</label>
+                                <textarea id="message" name="message" maxlength="3000" placeholder="Tell us about your goals or any questions you have."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- PAYMENT INFORMATION -->
+                        <div class="payment-instructions">
+                            <h4>AMB Registration Payment</h4>
+                            <p>Review the payment details below before making your registration payment.</p>
+
+                            <div class="payment-detail">
+                                <span>Payment Provider</span>
+                                <strong>MTN Mobile Money</strong>
+                            </div>
+
+                            <div class="payment-detail">
+                                <span>Account Name</span>
+                                <strong>Nizerlyn Tolgboh</strong>
+                            </div>
+
+                            <div class="payment-detail">
+                                <span>Payment Number</span>
+                                <div class="payment-number">
+                                    <strong id="ambPaymentNumber">0555798380</strong>
+                                    <button type="button" id="copyPaymentNumber" class="copy-payment-button">Copy Number</button>
+                                </div>
+                            </div>
+
+                            <div class="payment-fee">Registration Fee: <strong>$25 per course</strong></div>
+                            <p class="payment-warning">Please verify the recipient's name, payment number, currency, and fee before sending money. Keep your transaction confirmation for your records.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="payment_method">Payment Method *</label>
+                            <select id="payment_method" name="payment_method" required>
+                                <option value="">Select payment method</option>
+                                <option value="Mobile Money">MTN Mobile Money</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="payment_receipt">Payment Receipt *</label>
+                            <input type="file" id="payment_receipt" name="payment_receipt" accept=".jpg,.jpeg,.png,.webp" required>
+                            <small>Upload a clear image of your payment receipt. Accepted formats: JPG, PNG, or WebP. Maximum size: 2 MB.</small>
+                        </div>
+
+                        <div class="form-group terms-group">
+                            <label for="terms_agreed">
+                                <input type="checkbox" id="terms_agreed" name="terms_agreed" value="yes" required>
+                                <span>I confirm that the information I have provided is correct and I agree to the application requirements.</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary submit-button" id="submitButton">Submit Application</button>
+                        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT CALL TO ACTION -->
+        <section class="contact-strip" id="contact">
+            <div class="container">
+                <h2>Ready to Take the Next Step?</h2>
+                <p>Complete the application form and tell us about your learning goals.</p>
+                <a href="#apply" class="btn btn-primary">Apply to AMB</a>
+            </div>
+        </section>
+
+        <!-- CONTACT DETAILS WITH LOGO IMAGES -->
+        <section class="contact-details" aria-labelledby="contactDetailsHeading">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Get in Touch</span>
+                    <h2 id="contactDetailsHeading">Contact African Minds Builder</h2>
+                    <p>Have a question about our programs or application process? Contact the AMB team using one of the options below.</p>
+                </div>
+<div class="contact-links">
+    <a class="contact-action" href="https://wa.me/231770355276" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp">
+        WhatsApp
+    </a>
+
+    <a class="contact-action" href="mailto:africanmindsbuilders@gmail.com">
+        <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="Email">
+        Email Us
+    </a>
+
+    <a class="contact-action" href="https://web.facebook.com/share/p/1GYguk4qAz/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook">
+        Facebook
+    </a>
+</div>
+
+                <p class="contact-note">
+                    We look forward to hearing from you. Thank you for connecting with African Minds Builder.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <strong>African Minds Builder (AMB)</strong>
+                <p>Learn • Build • Succeed</p>
+                <p>© <span id="currentYear"></span> African Minds Builder. All rights reserved.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#programs">Programs</a>
+                <a href="#about">About</a>
+                <a href="#apply">Apply</a>
+                <a href="#contact">Contact Us</a>
+                <a href="https://web.facebook.com/share/p/1GYguk4qAz/" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            });
+        });
+
+        // Select a program from its card
+        document.querySelectorAll("[data-program]").forEach(function (button) {
+            button.addEventListener("click", function () {
+                document.getElementById("program").value = button.dataset.program;
+                document.getElementById("apply").scrollIntoView({ behavior: "smooth" });
+            });
+        });
+
+        // Copy payment number
+        const copyButton = document.getElementById("copyPaymentNumber");
+
+        copyButton.addEventListener("click", async function () {
+            const number = document.getElementById("ambPaymentNumber").textContent.trim();
+
+            try {
+                await navigator.clipboard.writeText(number);
+                copyButton.textContent = "Copied!";
+
+                setTimeout(function () {
+                    copyButton.textContent = "Copy Number";
+                }, 2000);
+            } catch (error) {
+                window.prompt("Copy the payment number below:", number);
+            }
+        });
+
+        // Validate uploaded images
+        const passportInput = document.getElementById("passport_photo");
+        const photoPreview = document.getElementById("photoPreview");
+        const receiptInput = document.getElementById("payment_receipt");
+
+        function validateImageFile(file, fieldName) {
+            const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+
+            if (!file) return fieldName + " is required.";
+
+            if (!allowedTypes.includes(file.type)) {
+                return fieldName + " must be a JPG, PNG, or WebP image.";
+            }
+
+            if (file.size > 2 * 1024 * 1024) {
+                return fieldName + " must be no larger than 2 MB.";
+            }
+
+            return "";
+        }
+
+        // Passport photo preview
+        passportInput.addEventListener("change", function () {
+            const file = passportInput.files[0];
+
+            photoPreview.style.display = "none";
+            photoPreview.removeAttribute("src");
+
+            if (!file) return;
+
+            const error = validateImageFile(file, "Passport photo");
+
+            if (error) {
+                alert(error);
+                passportInput.value = "";
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                photoPreview.src = event.target.result;
+                photoPreview.style.display = "block";
+            };
+
+            reader.readAsDataURL(file);
+        });
+
+        // Payment receipt validation
+        receiptInput.addEventListener("change", function () {
+            const file = receiptInput.files[0];
+            if (!file) return;
+
+            const error = validateImageFile(file, "Payment receipt");
+
+            if (error) {
+                alert(error);
+                receiptInput.value = "";
+            }
+        });
+
+        // Application submission: sends data to apply.php
+        const applicationForm = document.getElementById("applicationForm");
+        const formStatus = document.getElementById("formStatus");
+        const submitButton = document.getElementById("submitButton");
+
+        applicationForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const passportError = validateImageFile(
+                passportInput.files[0],
+                "Passport photo"
+            );
+
+            if (passportError) {
+                showStatus(passportError, "error");
+                return;
+            }
+
+            const receiptError = validateImageFile(
+                receiptInput.files[0],
+                "Payment receipt"
+            );
+
+            if (receiptError) {
+                showStatus(receiptError, "error");
+                return;
+            }
+
+            if (!applicationForm.checkValidity()) {
+                applicationForm.reportValidity();
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = "Submitting...";
+            showStatus("Submitting your application. Please wait...", "loading");
+
+            try {
+                const response = await fetch("apply.php", {
+                    method: "POST",
+                    body: new FormData(applicationForm)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    throw new Error(
+                        result.message || "Your application could not be submitted."
+                    );
+                }
+
+                showStatus(
+                    result.message || "Your application was submitted successfully.",
+                    "success"
+                );
+
+                applicationForm.reset();
+                photoPreview.style.display = "none";
+                photoPreview.removeAttribute("src");
+
+            } catch (error) {
+                showStatus(
+                    error.message ||
+                    "Unable to submit your application. Please check your connection and try again.",
+                    "error"
+                );
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = "Submit Application";
+            }
+        });
+
+        function showStatus(message, type) {
+            formStatus.textContent = message;
+            formStatus.className = "form-status " + type;
+        }
+
+        // Automatically update copyright year
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+
+/* =================================
+   AMB PAYMENT INSTRUCTIONS
+================================= */
+
+.payment-instructions {
+    background: #fff7ed;
+    border: 1px solid #f97316;
+    border-radius: 14px;
+    padding: 24px;
+    margin: 24px 0;
+    color: #171717;
+}
+
+.payment-instructions h3 {
+    color: #ea580c;
+    font-size: 24px;
+    margin: 0 0 12px;
+}
+
+.payment-instructions p {
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.payment-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 0;
+    border-bottom: 1px solid #fed7aa;
+}
+
+.payment-detail > span {
+    color: #57534e;
+}
+
+.payment-detail strong {
+    color: #171717;
+}
+
+.payment-number {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.copy-payment-button {
+    background: #f97316;
+    color: #ffffff;
+    border: none;
+    border-radius: 7px;
+    padding: 9px 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.copy-payment-button:hover {
+    background: #ea580c;
+}
+
+.payment-fee {
+    background: #ffedd5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 18px !important;
+    font-size: 18px;
+}
+
+.payment-warning {
+    font-size: 14px;
+    color: #7c2d12;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input[type="file"],
+.form-group select {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border: 1px solid #d4d4d4;
+    border-radius: 8px;
+    background: #ffffff;
+    box-sizing: border-box;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 8px;
+    color: #737373;
+    line-height: 1.5;
+}
+
+.terms-group label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.6;
+}
+
+.terms-group input[type="checkbox"] {
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .payment-instructions {
+        padding: 16px;
+    }
+
+    .payment-instructions h3 {
+        font-size: 21px;
+    }
+
+    .payment-detail {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
